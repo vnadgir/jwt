@@ -19,7 +19,7 @@ func main() {
 	app.Command("encode", "encode", func(cmd *cli.Cmd) {
 		app.Spec = "[ea] k"
 		scopes := cmd.StringsOpt("e scopes", []string{}, "desc")
-		privateKeyFile := cmd.StringOpt("k key", "~/.id_rsa", "private key file")
+		privateKeyFile := cmd.StringOpt("k key", "", "private key file")
 		subject := cmd.StringOpt("a subject", "me", "subject")
 		cmd.Action = func() {
 			encodedToken, err := encode(*scopes, *privateKeyFile, *subject)
